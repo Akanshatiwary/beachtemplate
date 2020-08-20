@@ -1,43 +1,77 @@
 import React, { Component } from 'react';
 import emailjs from 'emailjs-com';
 import "./Formstyle.css";
+import firebaseConfigObject from '../firebase';
 
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      email: "",
-      mobile: "",
-      country: "",
-      phone: ""
+      name:"",
+      email:"",
+      mobile:"",
+      country:"",
+      phone:"",
+     
     }
     this.sendEmail = this.sendEmail.bind(this);
     this.Inputhandler = this.Inputhandler.bind(this)
   }
+  validation(){
+      let {name,mobile,phone,email,country} =this.state;
+      let phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+      if (mobile!== phone){
+        return false;
+      }
+      if(mobile!==phoneno){
+        return false;
+      }
+      //false,true,true,true,true => false
+      if(name!=="" && phone!=="" && email!=="" && mobile!=="" && country!==""){
+        return false;
+        }
+        else{
+          return true;
+        }
+    }
+
   Inputhandler(e) {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
-
   sendEmail(e) {
     e.preventDefault();
+    if (this.validation()) {     
     emailjs.sendForm('gmail', 'my_template', e.target, 'user_746hXOpVDvk3zy239Magj')
       .then(function (response) {
         alert('SUCCESS!', response.status, response.text);
       }, function (error) {
         console.log('FAILED...', error);
       });
-    this.setState({
-      name: "",
-      mobile: "",
-      email: "",
-      country: "",
-      phone: ""
-    })
-  }
+      firebaseConfigObject.database().ref('users/' + this.state.phone).set({
+        name: this.state.name,
+        mobile:this.state.mobile,
+        email:this.state.email,
+        country:this.state.country,
+        phone:this.state.phone
+      }).then(function(val){
+        this.setState({
+          name:"",
+          mobile:"",
+          email:"",
+          country:"",
+          phone:""
+        }) 
+      })
 
+  }
+  else{
+    alert("form has errors")
+  }
+  
+  }
+     
   render() {
     return (
        <div className="container">

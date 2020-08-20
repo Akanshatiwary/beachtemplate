@@ -2,7 +2,7 @@ import React, { Component } from 'react';
  import Card from './Card';
 import Form from './Form';
 import './CardContainerstyle.css';
- import Carditem from './Carditem';
+//  import Carditem from './Carditem';
 
 
 class Cardcontainer extends Component {
@@ -10,11 +10,14 @@ class Cardcontainer extends Component {
     return (
       <>
       <div className="Card_container">
+        <div className="headinner">
         <Card/>
-        <Form/>
         </div>
-        <Carditem/>
-
+        <div className="headinner">
+        <Form/>
+        </div>      
+        </div>
+        {/* <Carditem/> */}
       </>
     )
   }
