@@ -19,19 +19,25 @@ class Form extends Component {
   }
   validation(){
       let {name,mobile,phone,email,country} =this.state;
-      let phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+      let phoneno =" /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/";
       if (mobile!== phone){
+        console.log(mobile,phone);
         return false;
       }
-      if(mobile!==phoneno){
+      if(isNaN(mobile) && isNaN(phone))
+      {
         return false;
       }
+    if(mobile!==phoneno && phone!==phoneno){
+      return false;
+    }
       //false,true,true,true,true => false
       if(name!=="" && phone!=="" && email!=="" && mobile!=="" && country!==""){
-        return false;
+        return true;
         }
         else{
-          return true;
+          console.log(name,mobile,phone,email,country);
+          return false;
         }
     }
 
@@ -42,7 +48,9 @@ class Form extends Component {
   }
   sendEmail(e) {
     e.preventDefault();
-    if (this.validation()) {     
+    let isValidated = this.validation();
+    console.log(isValidated);
+    if (isValidated) {     
     emailjs.sendForm('gmail', 'my_template', e.target, 'user_746hXOpVDvk3zy239Magj')
       .then(function (response) {
         alert('SUCCESS!', response.status, response.text);
@@ -50,12 +58,12 @@ class Form extends Component {
         console.log('FAILED...', error);
       });
       firebaseConfigObject.database().ref('users/' + this.state.phone).set({
-        name: this.state.name,
+        name:this.state.name,
         mobile:this.state.mobile,
         email:this.state.email,
         country:this.state.country,
         phone:this.state.phone
-      }).then(function(val){
+      })
         this.setState({
           name:"",
           mobile:"",
@@ -63,8 +71,6 @@ class Form extends Component {
           country:"",
           phone:""
         }) 
-      })
-
   }
   else{
     alert("form has errors")
