@@ -26,70 +26,70 @@ class Carditem extends Component {
   render() {
     return (
       <div className="wrapper">
-        <div className="card_outer">
-          <div className="card_inner" >
-            <div className="list cardinner" >
-              <img src={sea} onClick={this.handleShow} alt="placeholder" className="image" />
-              <div className="overlay">
-                <div className="hide">
-                  <h5>Total Body Rebalancing!</h5>
-                  <button className="hoverbtn" onClick={this.handleShow}>click here</button>
-                </div>
+      <div className="card_outer">
+        <div className="card_inner" >
+          <div className="list cardinner" >
+            <img src={sea} onClick={this.handleShow} alt="placeholder" className="image" />
+            <div className="overlay">
+              <div className="hide">
+                <h5>Total Body Rebalancing!</h5>
+                <button className="hoverbtn" onClick={this.handleShow}>click here</button>
               </div>
-            </div>
-            <div className="list cardinner" >
-              <img src={sea} onClick={this.handleShow} alt="placeholder" className="image" />
-              <div className="overlay">
-                <div className="hide">
-                  <h5>Total Body Rebalancing!</h5>
-                  <button className="hoverbtn" onClick={this.handleShow}>click here</button>
-                </div>
-              </div>
-            </div>
-            <div className="list cardinner" >
-              <img src={sea} onClick={this.handleShow} alt="placeholder" className="image" />
-              <div className="overlay">
-                <div className="hide">
-                  <h5>Total Body Rebalancing!</h5>
-                  <button className="hoverbtn" onClick={this.handleShow}>click here</button>
-                </div>
-              </div>
-            </div>
           </div>
-          <div className="cardchild " >
-            <div className="list cardinner ignore" >
-              <img src={sea} onClick={this.handleShow} alt="placeholder" className="image" />
-              <div className="overlay">
-                <div className="hide">
-                  <h5>Total Body Rebalancing!</h5>
-                  <button className="hoverbtn" onClick={this.handleShow}>click here</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <Modal className="modal pop" show={this.state.show} onHide={this.handleClose}>
-            <Modal.Header closeButton>
-            </Modal.Header>
-            <Modal.Body>
-              <div className="modal_container">
-                <div className="modal_item">
-                  <img src="https://via.placeholder.com/189x127" alt="omage" />
-                </div>
-                <div className="modal_item">
-                  <h4>Total Body Rebalancing!</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.
-                  </p>
-                </div>
-              </div>
-            </Modal.Body>
-
-          </Modal>
         </div>
+          <div className="list cardinner" >
+            <img src={sea} onClick={this.handleShow} alt="placeholder" className="image" />
+            <div className="overlay">
+              <div className="hide">
+                <h5>Total Body Rebalancing!</h5>
+                <button className="hoverbtn" onClick={this.handleShow}>click here</button>
+              </div>
+            </div>
+          </div>
+       <div className="list cardinner" >
+         <img src={sea} onClick={this.handleShow} alt="placeholder" className="image" />
+         <div className="overlay">
+           <div className="hide">
+             <h5>Total Body Rebalancing!</h5>
+             <button className="hoverbtn" onClick={this.handleShow}>click here</button>
+           </div>
+         </div>
+       </div>
+     </div>
+        <div className="cardchild " >
+        <div className="list cardinner ignore" >
+          <img src={sea} onClick={this.handleShow} alt="placeholder" className="image" />
+          <div className="overlay">
+            <div className="hide">
+              <h5>Total Body Rebalancing!</h5>
+              <button className="hoverbtn" onClick={this.handleShow}>click here</button>
+            </div>
+          </div>
+        </div>
+      </div>
+        <Modal className="modal pop" show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="modal_container">
+              <div className="modal_item">
+                <img src="https://via.placeholder.com/189x127" alt="omage" />
+              </div>
+              <div className="modal_item">
+                <h4>Total Body Rebalancing!</h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                  incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                  exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                  fugiat nulla pariatur.
+                  </p>
+              </div>
+            </div>
+          </Modal.Body>
+
+        </Modal>
+      </div>
       </div>
     )
   }
