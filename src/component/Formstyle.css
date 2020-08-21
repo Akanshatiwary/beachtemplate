@@ -12,13 +12,13 @@ form {
   display: inline-block;
 }
 .form_wrap h1{
-  font-size:30px;
   margin-bottom:10px;
+  font-size:30px;
   text-align: center;
 }
 .input_field p{
-  text-align: center;
   font-size: 1rem;
+  text-align: center;
 }
 label{
   display: block;
@@ -36,14 +36,14 @@ label{
   outline: none;
 }
 .submit_btn{
-  border: none;
   padding: 4px 15px;
+  border: none;
   background-color: #006bab;
-  outline: none;
   color:white;
+  font-size: 16px;
   text-align: center;
   text-transform:uppercase;
-  font-size: 16px;
+  outline: none;
 }
 input{
   font-size: 1rem;
@@ -58,8 +58,8 @@ input{
   left:0;
   top: 0;
   background-color:#000000; 
+  color:white;
   outline:none; 
-  color:white; 
 }
 .popup p{
   position: absolute;
@@ -78,25 +78,24 @@ input{
     margin-bottom: 50px;
   }
  .form_wrap{
-  padding: 30px 0;
- }
+    padding: 30px 0;
+  }
  .form h1{
    font-size: 3rem;
- }
+  }
  .form label{
    padding: 0 0 10px 0  ;
    font-size:2rem;
+  }
+  .input_field{
+    padding: 20px 0;
  }
- .input_field{
-  padding: 20px 0;
+  .btn{
+    width: 80%;
  }
- .btn{
-  width: 80%;
+  .input_field p{
+    font-size:2rem;
  }
- .input_field p{
-  font-size:2rem;
- }
-
 }
 @media only screen and (max-width:400px) {
   .form h1{

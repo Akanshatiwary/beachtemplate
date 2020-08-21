@@ -20,14 +20,14 @@
   display:block;
 }
 .card_inner{
-  display:block;
   margin-right: 0px;
+  display:block;
 }
 .cardinner{
   margin-bottom: 20px;
 }
 .overlay h5{
-  font-size: 2rem;
+  font-size: 20px;
 }
 .hoverbtn{
   padding-top: 20px;

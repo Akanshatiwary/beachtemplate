@@ -11,7 +11,7 @@ class Footer extends Component {
           <img src="https://via.placeholder.com/96x48" alt="logo" />
         </div>
         <div className="footer_inner">
-          <p>the beach house goa,sernabatim beach,goa403709,india tel: +91 832 - 6697733 </p>
+          <p>the beach house goa,sernabatim beach,goa 403709,india tel: +91 832 - 6697733 </p>
         </div>
         <div className="footer_inner">
           <a href="https://www.facebook.com/learnbuildteach/" className="facebook social" >

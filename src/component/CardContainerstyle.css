@@ -1,6 +1,6 @@
 .children{
-  display: flex;
   margin:0 0 20px 0;
+  display: flex;
 }
 .children:nth-of-type(2){
   margin-bottom: 0;
@@ -37,35 +37,35 @@ main .form {
   width: 25%;
 }
 @media only screen and (max-width:1024px){
-main .wrapper{
-  display: block;
-}
-main .cards {
-  width: 100%;
-  margin: 0 0 20px 0;
-}
-main .form {
-  width: 100%;
-}
-.Cardlist {
-  margin:0 20px 20px 0px;
-}
+  main .wrapper{
+    display: block;
+  }
+  main .cards {
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+  main .form {
+    width: 100%;
+  }
+  .Cardlist {
+    margin:0 20px 20px 0px;
+  }
 }
 @media only screen and (max-width:768px){
-main .wrapper{
-  display: block;
-}
-main .cards {
-  width: 100%;
-  margin: 0;
-}
-main .form {
-  width: 100%;
-}
-.children{
-  display: block;
-}
-.Cardlist {
-  margin:0 0 20px 0px;
-}
+  main .wrapper{
+    display: block;
+  }
+  main .cards {
+    width: 100%;
+    margin: 0;
+  }
+  main .form {
+    width: 100%;
+  }
+  .children{
+    display: block;
+  }
+  .Cardlist {
+    margin:0 0 20px 0px;
+  }
 }

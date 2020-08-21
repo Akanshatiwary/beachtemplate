@@ -57,7 +57,6 @@ table {
 * {
   box-sizing: border-box;
 }
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-image: url("images/beaches.jpg");
@@ -65,10 +64,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 .wrapper {
-  max-width: 1320px;
   width: 85%;
+  max-width: 1320px;
   margin: 0 auto;
 }
 .modal-open{
