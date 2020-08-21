@@ -1,21 +1,71 @@
 .children{
   display: flex;
-  margin:0 0 20px 0;
+  margin:0 0 10px 0;
 }
 .children:nth-of-type(2){
   margin-bottom: 0;
-}
-.Card_container{
-  display: flex;
-  box-sizing: border-box;
-  margin: 0 20px;
-}
-.Cardlist{
-  margin-right: 20px;
 }
 .Cardlist:nth-of-type(3){
   margin-right: 0px;
 }
 .Cardlist:nth-of-type(6){
   margin-right: 0px;
+}
+.children {
+  display: flex;
+}
+
+.Card_container {
+  display: flex;
+}
+.Cardlist {
+  margin: 0 10px 0 0;
+}
+.Cardlist:hover {
+  cursor: pointer;
+}
+main .wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+main .cards {
+  width: 75%;
+  margin: 0 10px 0 0;
+}
+main .form {
+  width: 25%;
+}
+@media only screen and (max-width:1024px){
+main .wrapper{
+  display: block;
+}
+main .cards {
+  width: 100%;
+  margin: 0;
+}
+main .form {
+  width: 100%;
+}
+.Cardlist {
+  margin:0 20px 20px 0px;
+}
+}
+@media only screen and (max-width:768px){
+main .wrapper{
+  display: block;
+}
+main .cards {
+  width: 100%;
+  margin: 0;
+}
+main .form {
+  width: 100%;
+}
+.children{
+  display: block;
+}
+.Cardlist {
+  margin:0 0 20px 0px;
+}
 }

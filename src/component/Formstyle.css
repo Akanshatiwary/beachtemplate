@@ -1,20 +1,24 @@
 .form_wrap{
   width: 100%;
   height: 100%;
+  padding: 20px;
   border: 1px solid #d9d2c1;
   background-color: white;
+}
+.container{
+  height: 100%;
 }
 form {
   display: inline-block;
 }
-h1{
+.form_wrap h1{
+  font-size:30px;
   margin-bottom:10px;
   text-align: center;
 }
-  /* .input_field p{
-    text-align: center;
-    padding: 0 15%;
-  } */
+.input_field p{
+  text-align: center;
+}
 .input_field{
   padding-top: 15px;
   text-align:center;
@@ -35,13 +39,68 @@ h1{
   text-transform:uppercase;
   font-size: 16px;
 }
-/* .validatebtn{
-  padding: 0 13%;
-} */
+input{
+  text-align: center;
+}
+label{
+  display: block;
+}
+.popup{
+  width:100%;
+  height: 100%;
+  display: none; 
+  position: fixed; 
+  z-index: 1;
+  left:0;
+  top: 0;
+  background-color:#000000; 
+  outline:none; 
+  color:white; 
+}
+.popup p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color:white; 
+}
 
-/* @media only screen and (max-width:1024px) {
+@media only screen and (max-width:1024px) {
+  .form{
+    margin-bottom: 20px;
+  }
  .form_wrap{
-   width: 232px;
+  padding: 30px 0;
+ }
+ .form h1{
+   font-size: 3rem;
+ }
+ .form label{
+   padding: 0 0 10px 0  ;
+   font-size:2rem;
+ }
+ .input_field{
+  padding: 20px 0;
+ }
+ .btn{
+  width: 80%;
+ }
+ .input_field p{
+  font-size:2rem;
  }
 
-} */
+}
+@media only screen and (max-width:400px) {
+  .form h1{
+    font-size: 2rem;
+  }
+  .form label{
+    font-size:20px;
+  }
+  .input_field p{
+   font-size:20px;
+  }
+}

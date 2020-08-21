@@ -2,44 +2,48 @@ import React, { Component } from 'react';
 import emailjs from 'emailjs-com';
 import "./Formstyle.css";
 import firebaseConfigObject from '../firebase';
+import Modal from 'react-bootstrap/Modal';
+import './Modalstyle.css';
 
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name:"",
-      email:"",
-      mobile:"",
-      country:"",
-      phone:"",
-     
+      name: "",
+      email: "",
+      mobile: "",
+      country: "",
+      phone: "",
+      open: false
+
     }
     this.sendEmail = this.sendEmail.bind(this);
-    this.Inputhandler = this.Inputhandler.bind(this)
+    this.Inputhandler = this.Inputhandler.bind(this);
+    this.handleClose = this.handleClose.bind(this)
+
   }
-  validation(){
-      let {name,mobile,phone,email,country} =this.state;
-      let phoneno =" /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/";
-      if (mobile!== phone){
-        console.log(mobile,phone);
-        return false;
-      }
-      if(isNaN(mobile) && isNaN(phone))
-      {
-        return false;
-      }
-    if(mobile!==phoneno && phone!==phoneno){
+  handleClose() {
+    this.setState({
+      open: false
+    })
+  }
+  validation() {
+    let { name, mobile, phone, email, country } = this.state;
+    if (mobile !== phone) {
+      console.log(mobile, phone);
       return false;
     }
-      //false,true,true,true,true => false
-      if(name!=="" && phone!=="" && email!=="" && mobile!=="" && country!==""){
-        return true;
-        }
-        else{
-          console.log(name,mobile,phone,email,country);
-          return false;
-        }
+    if (isNaN(mobile) && isNaN(phone)) {
+      return false;
     }
+    if (name !== "" && phone !== "" && email !== "" && mobile !== "" && country !== "") {
+      return true;
+    }
+    else {
+      console.log(name, mobile, phone, email, country);
+      return false;
+    }
+  }
 
   Inputhandler(e) {
     this.setState({
@@ -50,37 +54,38 @@ class Form extends Component {
     e.preventDefault();
     let isValidated = this.validation();
     console.log(isValidated);
-    if (isValidated) {     
-    emailjs.sendForm('gmail', 'my_template', e.target, 'user_746hXOpVDvk3zy239Magj')
-      .then(function (response) {
-        alert('SUCCESS!', response.status, response.text);
-      }, function (error) {
-        console.log('FAILED...', error);
-      });
+    if (isValidated) {
+      emailjs.sendForm('gmail', 'my_template', e.target, 'user_746hXOpVDvk3zy239Magj')
+        .then((result) => {
+          console.log("THANKYOU");
+        }, (error) => {
+          console.log(error.text);
+        });
       firebaseConfigObject.database().ref('users/' + this.state.phone).set({
-        name:this.state.name,
-        mobile:this.state.mobile,
-        email:this.state.email,
-        country:this.state.country,
-        phone:this.state.phone
+        name: this.state.name,
+        mobile: this.state.mobile,
+        email: this.state.email,
+        country: this.state.country,
+        phone: this.state.phone
       })
-        this.setState({
-          name:"",
-          mobile:"",
-          email:"",
-          country:"",
-          phone:""
-        }) 
+      this.setState({
+        name: "",
+        mobile: "",
+        email: "",
+        country: "",
+        phone: "",
+        open: true
+      })
+    }
+    else {
+      alert("error")
+    }
+
   }
-  else{
-    alert("form has errors")
-  }
-  
-  }
-     
+
   render() {
     return (
-       <div className="container">
+      <div className="container">
         <form className="form_wrap" onSubmit={this.sendEmail}>
           <h1>Enquire Now</h1>
           <div className="input_field">
@@ -132,7 +137,16 @@ class Form extends Component {
             <input type="submit" value="Submit" className="submit_btn" />
           </div>
         </form>
-       </div>
+        <Modal className="modal popup" show={this.state.open} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+          </Modal.Header>
+          <Modal.Body>
+            <p>
+              THANKYOU
+            </p>
+          </Modal.Body>
+        </Modal>
+      </div>
     )
   };
 }
